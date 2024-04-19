@@ -3,6 +3,7 @@
 @tailwind utilities;
 @layer base {
   body {
-    @apply font-body text-base;
+    @apply font-body text-base pr-11 pl-11;
+    // @apply font-body text-base;
   }
 }
