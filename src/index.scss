@@ -6,4 +6,7 @@
     @apply font-body text-base pr-11 pl-11;
     // @apply font-body text-base;
   }
+  input {
+    @apply outline-none;
+  }
 }

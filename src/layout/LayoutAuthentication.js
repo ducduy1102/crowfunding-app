@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ProptTypes from "prop-types";
+import { withErrorBoundary } from "react-error-boundary";
+import ErrorComponent from "../components/common/ErrorComponent";
 
 const LayoutAuthentication = (props) => {
   const { children, heading = "" } = props;
@@ -13,6 +16,7 @@ const LayoutAuthentication = (props) => {
       <Link to={"/"} className="inline-block mb-5 lg:mb-16">
         <img srcSet="/logo.png 2x" alt="CrowFunding" />
       </Link>
+      {/* {props.author.name} */}
       <div className="w-full max-w-[556px] bg-white rounded-xl px-5 py-8 lg:px-16 lg:py-12 mx-auto">
         <h1 className="mb-1 text-lg font-semibold text-center lg:text-xl lg:mb-3 text-text1">
           {heading}
@@ -23,4 +27,11 @@ const LayoutAuthentication = (props) => {
   );
 };
 
-export default LayoutAuthentication;
+LayoutAuthentication.propTypes = {
+  heading: ProptTypes.string,
+  children: ProptTypes.node,
+};
+
+export default withErrorBoundary(LayoutAuthentication, {
+  FallbackComponent: ErrorComponent,
+});
