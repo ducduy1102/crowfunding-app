@@ -5,9 +5,9 @@ import DashboardSidebar from "modules/dashboard/DashboardSidebar";
 
 const LayoutDashboard = ({ children }) => {
   return (
-    <div className="p-10 bg-lite">
+    <div className="min-h-screen p-10 bg-lite">
       <DashboardTopbar></DashboardTopbar>
-      <div className="">
+      <div className="flex items-start gap-x-10">
         <DashboardSidebar></DashboardSidebar>
         <div className="">{children}</div>
       </div>
