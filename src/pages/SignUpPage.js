@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Label } from "../components/label";
 import { Input } from "../components/input";
 import FormGroup from "../components/common/FormGroup";
-import { Button } from "../components/button";
+import { Button, ButtonGoogle } from "../components/button";
 import Checkbox from "../components/checkbox/Checkbox";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -51,10 +51,7 @@ const SignUpPage = () => {
           Sign in
         </Link>
       </p>
-      <button className="flex items-center justify-center w-full py-4 mb-5 text-base font-semibold border gap-x-3 border-strock rounded-xl text-text2 dark:text-white dark:border-darkStroke">
-        <img srcSet="/icon-google.png 2x" alt="icon-google" />
-        <span>Sign up with Google</span>
-      </button>
+      <ButtonGoogle text="Sign up with Google"></ButtonGoogle>
       <p className="mb-4 text-xs font-normal text-center lg:text-sm lg:mb-8 text-text-2 dark:text-white">
         Or sign up with email
       </p>
