@@ -7,9 +7,9 @@ const LayoutDashboard = ({ children }) => {
   return (
     <div className="min-h-screen p-10 bg-lite">
       <DashboardTopbar></DashboardTopbar>
-      <div className="flex items-start gap-x-10">
+      <div className="flex items-start flex-shrink-0 gap-x-10">
         <DashboardSidebar></DashboardSidebar>
-        <div className="">{children}</div>
+        <div className="flex-1">{children}</div>
       </div>
     </div>
   );
