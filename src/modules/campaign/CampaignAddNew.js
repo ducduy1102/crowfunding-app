@@ -1,14 +1,53 @@
 import FormGroup from "components/common/FormGroup";
 import FormRow from "components/common/FormRow";
-import { Input } from "components/input";
+import { Dropdown } from "components/dropdown";
+import { Input, Textarea } from "components/input";
 import { Label } from "components/label";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import ReactQuill, { Quill } from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import ImageUploader from "quill-image-uploader";
+import axios from "axios";
+Quill.register("modules/imageUploader", ImageUploader);
 
 const CampaignAddNew = () => {
   const { handleSubmit, control } = useForm({
     mode: "onChange",
   });
+  const [content, setContent] = useState("");
+  const modules = useMemo(
+    () => ({
+      toolbar: [
+        ["bold", "italic", "underline", "strike"],
+        ["blockquote"],
+        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ["link", "image"],
+      ],
+      imageUploader: {
+        upload: async (file) => {
+          // const bodyFormData = new FormData();
+          // bodyFormData.append("image", file);
+          // const response = await axios({
+          //   method: "post",
+          //   url: imgbbAPI,
+          //   data: bodyFormData,
+          //   headers: {
+          //     "Content-Type": "multipart/form-data",
+          //   },
+          // });
+          // return response.data.data.url;
+        },
+      },
+    }),
+    []
+  );
+
+  const handleAddNewCampaign = (values) => {
+    console.log(values);
+  };
   return (
     <div className="rounded-xl bg-white py-10 px-[66px]">
       <div className="text-center">
@@ -16,7 +55,7 @@ const CampaignAddNew = () => {
           Start a Campaign 🚀
         </h1>
       </div>
-      <form>
+      <form onSubmit={handleSubmit(handleAddNewCampaign)}>
         <FormRow>
           <FormGroup>
             <Label>Campaign Title *</Label>
@@ -28,13 +67,33 @@ const CampaignAddNew = () => {
           </FormGroup>
           <FormGroup>
             <Label>Select a category *</Label>
-            <Input
-              control={control}
-              name="category"
-              placeholder="Select a category"
-            ></Input>
+            <Dropdown>
+              <Dropdown.Select placeholder="Select a category"></Dropdown.Select>
+              <Dropdown.List>
+                <Dropdown.Option>Architecture</Dropdown.Option>
+                <Dropdown.Option>Crypto</Dropdown.Option>
+              </Dropdown.List>
+            </Dropdown>
           </FormGroup>
         </FormRow>
+        <FormGroup>
+          <Label>Short Description *</Label>
+          <Textarea
+            control={control}
+            name="short-desc"
+            placeholder="Write a short description...."
+          ></Textarea>
+        </FormGroup>
+        <FormGroup>
+          <Label>Story *</Label>
+          <ReactQuill
+            placeholder="Write your story......"
+            theme="snow"
+            value={content}
+            onChange={setContent}
+            modules={modules}
+          />
+        </FormGroup>
       </form>
     </div>
   );
