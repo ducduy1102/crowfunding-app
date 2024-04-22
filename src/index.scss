@@ -21,10 +21,6 @@ input:focus + .error-input {
 .quill {
   @apply border border-strock rounded-xl;
   padding: 15px 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   .ql-toolbar.ql-snow {
     border: none;
@@ -32,14 +28,23 @@ input:focus + .error-input {
   }
 
   .ql-container.ql-snow {
-    @apply border-none w-full font-primary text-sm;
+    @apply border-none font-primary text-sm;
   }
 
   .ql-editor {
-    @apply py-10;
+    @apply pt-10;
   }
 
   .ql-editor.ql-blank::before {
     @apply text-sm not-italic text-text4 font-medium;
   }
+}
+
+.gradient-banner {
+  background-image: linear-gradient(
+      179.14deg,
+      rgba(32, 18, 63, 0.4) -7.14%,
+      rgba(0, 0, 0, 0.4) 87.01%
+    ),
+    url("https://images.unsplash.com/photo-1659948782675-9d4fadea983b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
 }

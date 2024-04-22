@@ -3,6 +3,7 @@ import ProptTypes from "prop-types";
 import DashboardTopbar from "modules/dashboard/DashboardTopbar";
 import DashboardSidebar from "modules/dashboard/DashboardSidebar";
 import Overlay from "components/common/Overlay";
+import { Outlet } from "react-router-dom";
 
 const LayoutDashboard = ({ children }) => {
   return (
@@ -11,7 +12,9 @@ const LayoutDashboard = ({ children }) => {
       <DashboardTopbar></DashboardTopbar>
       <div className="flex items-start flex-shrink-0 gap-x-10">
         <DashboardSidebar></DashboardSidebar>
-        <div className="flex-1">{children}</div>
+        <div className="flex-1">
+          <Outlet></Outlet>
+        </div>
       </div>
     </div>
   );
