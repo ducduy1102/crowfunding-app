@@ -1,4 +1,5 @@
 import React from "react";
+import ProptTypes from "prop-types";
 
 const FormGroup = ({ children }) => {
   return (
@@ -6,6 +7,10 @@ const FormGroup = ({ children }) => {
       {children}
     </div>
   );
+};
+
+FormGroup.propTypes = {
+  children: ProptTypes.node,
 };
 
 export default FormGroup;

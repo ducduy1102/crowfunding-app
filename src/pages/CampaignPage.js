@@ -38,7 +38,9 @@ const CampaignPage = () => {
         </div>
         <Button
           type="button"
-          className="!text-secondary bg-secondary bg-opacity-20"
+          kind="ghost"
+          className="px-8"
+          href="/start-campaign"
         >
           Create campaign
         </Button>
@@ -50,6 +52,22 @@ const CampaignPage = () => {
         <CampaignFeature></CampaignFeature>
         <CampaignFeature></CampaignFeature>
       </CampaignGrid>
+      <div className="mt-10 text-center"></div>
+      <Button kind="ghost" type="button" className="px-8 mx-auto ">
+        <span>See more</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-5 h-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </Button>
     </LayoutDashboard>
   );
 };
