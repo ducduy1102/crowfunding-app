@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "utils/classNames";
 import ProptTypes from "prop-types";
 
-const CampDesc = ({ children, className = "mb-4 text-sm" }) => {
+const CampDesc = ({ children, className = "mb-4 text-xs" }) => {
   return (
     <p className={classNames("text-text3 font-normal", className)}>
       {children}
