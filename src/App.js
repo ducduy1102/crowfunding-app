@@ -12,6 +12,8 @@ const LayoutDashboard = lazy(() => import("layout/LayoutDashboard"));
 const CampaignView = lazy(() => import("modules/campaign/CampaignView"));
 const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
 const ShippingPage = lazy(() => import("./pages/ShippingPage"));
+const PaymentPage = lazy(() => import("./pages/PaymentPage"));
+const WithdrawPage = lazy(() => import("./pages/WithdrawPage"));
 
 const customStyles = {
   content: {},
@@ -26,6 +28,11 @@ function App() {
       <Routes>
         <Route element={<LayoutDashboard></LayoutDashboard>}>
           <Route path="/" element={<DashboardPage></DashboardPage>}></Route>
+          <Route
+            path="/withdraw"
+            element={<WithdrawPage></WithdrawPage>}
+          ></Route>
+          <Route path="/payment" element={<PaymentPage></PaymentPage>}></Route>
           <Route
             path="/campaign"
             element={<CampaignPage></CampaignPage>}
