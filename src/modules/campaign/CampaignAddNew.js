@@ -12,6 +12,7 @@ import axios from "axios";
 import { IconBannerCampAddNew, IconMoneyBag } from "components/icons";
 import { Button } from "components/button";
 import useOnChange from "hooks/useOnChange";
+// import DatePicker from "react-date-picker";
 import { toast } from "react-toastify";
 Quill.register("modules/imageUploader", ImageUploader);
 
@@ -75,6 +76,8 @@ const CampaignAddNew = () => {
     }
     fetchCountries();
   }, [filterCountry]);
+
+  // const [startDate, setStartDate] = useState(new Date());
 
   return (
     <div className="rounded-xl bg-white py-10 px-[66px]">
@@ -218,14 +221,17 @@ const CampaignAddNew = () => {
             <FormGroup>
               <Label>Start Date</Label>
               <Input
+                type="date"
                 control={control}
                 name="start-date"
                 placeholder="Start Date"
               ></Input>
+              {/* <DatePicker onChange={setStartDate} value={startDate}></DatePicker> */}
             </FormGroup>
             <FormGroup>
               <Label>End Date</Label>
               <Input
+                type="date"
                 control={control}
                 name="end-date"
                 placeholder="End Date"

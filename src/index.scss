@@ -66,3 +66,103 @@ input:focus + .error-input {
 .scroll-hidden::-webkit-scrollbar {
   display: none;
 }
+
+// custom date picker
+body {
+  .react-date-picker {
+    @apply w-full px-6 py-4 text-sm font-medium border rounded-xl placeholder:text-text4 dark:placeholder:text-text2 dark:text-white bg-transparent border-strock text-text1 dark:border-darkStroke;
+    height: 54px;
+
+    &__wrapper {
+      @apply border-none flex justify-between items-center flex-grow;
+    }
+
+    &__clear-button {
+      @apply hidden;
+    }
+
+    &__inputGroup {
+      min-width: 0;
+      flex-grow: 0;
+      .react-date-picker__inputGroup__input.react-date-picker__inputGroup__month {
+        width: 23px !important;
+      }
+
+      .react-date-picker__inputGroup__input.react-date-picker__inputGroup__day {
+        width: 33px !important;
+      }
+
+      .react-date-picker__inputGroup__input.react-date-picker__inputGroup__year {
+        width: 53px !important;
+      }
+    }
+    &__button {
+      padding: 0;
+    }
+  }
+
+  .react-calendar button {
+    outline: none;
+  }
+
+  .react-date-picker__calendar .react-calendar {
+    @apply border-none shadow rounded-lg bg-white p-3;
+
+    &__navigation {
+      @apply flex justify-between items-center p-3 h-11 mb-3;
+
+      &__arrow:hover {
+        @apply bg-gray-700;
+      }
+
+      &__prev-button,
+      &__next-button,
+      &__prev2-button,
+      &__next2-button {
+        @apply px-5 py-2 w-2;
+      }
+    }
+  }
+
+  .react-calendar__tile {
+    max-width: 100%;
+    text-align: center;
+    padding: 0.75em 0.5em;
+    background: none;
+  }
+
+  .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+  }
+
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: #757575;
+  }
+
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    @apply bg-transparent;
+  }
+  .react-calendar__tile:not(
+      .react-calendar__tile--active,
+      .react-calendar__tile--now
+    ):enabled:hover,
+  .react-calendar__tile:not(
+      .react-calendar__tile--active,
+      .react-calendar__tile--now
+    ):enabled:focus {
+    @apply bg-transparent text-primary;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus,
+  .react-calendar__tile--active,
+  .react-calendar__tile--active:hover {
+    @apply bg-primary text-white rounded-lg;
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus,
+  .react-calendar__tile--now,
+  .react-calendar__tile--now:hover {
+    @apply bg-secondary text-white rounded-lg;
+  }
+}
