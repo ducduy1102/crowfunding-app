@@ -6,8 +6,8 @@ import CampImage from "./parts/CampImage";
 import CampMeta from "./parts/CampMeta";
 import { Button } from "components/button";
 import CampViewAuthor from "./parts/CampViewAuthor";
-import CampaignSupport from "./parts/CampaignSupport";
-import CampaignPerk from "./parts/CampaignPerk";
+import CampaignSupport from "./CampaignSupport";
+import CampaignPerk from "./CampaignPerk";
 import CampaignGrid from "./CampaignGrid";
 import CampainItem from "./CampainItem";
 

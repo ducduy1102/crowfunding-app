@@ -26,7 +26,7 @@ const CampaignSupport = () => {
             Support the project for no reward, just because it speaks to you.
           </p>
         </div>
-        <Button className="w-full" kind="secondary">
+        <Button type="button" className="w-full" kind="secondary">
           Continue
         </Button>
       </div>

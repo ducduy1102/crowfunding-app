@@ -6,13 +6,14 @@ import Overlay from "components/common/Overlay";
 import { Outlet } from "react-router-dom";
 import ReactModal from "react-modal";
 import { Button } from "components/button";
-import CampaignPerk from "modules/campaign/parts/CampaignPerk";
+import CampaignPerk from "modules/campaign/CampaignPerk";
+import ModalBackProject from "components/modal/ModalBackProject";
 
 const LayoutDashboard = ({ children }) => {
   return (
     <div className="min-h-screen p-10 bg-lite">
-      <ReactModal
-        isOpen
+      {/* <ReactModal
+        isOpen={false}
         overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center"
         className="modal-content w-full max-w-[521px] bg-white rounded-2xl outline-none p-10 relative max-h-[90vh] overflow-y-auto scroll-hidden"
       >
@@ -45,10 +46,13 @@ const LayoutDashboard = ({ children }) => {
         <p className="my-5 text-text3">
           Contribution are not associatied with perks
         </p>
-        <Button kind="primary">Continue</Button>
+        <Button type="button" kind="primary">
+          Continue
+        </Button>
         <div className="mt-[60px]"></div>
         <CampaignPerk showButton></CampaignPerk>
-      </ReactModal>
+      </ReactModal> */}
+      <ModalBackProject></ModalBackProject>
       <Overlay></Overlay>
       <DashboardTopbar></DashboardTopbar>
       <div className="flex items-start flex-shrink-0 gap-x-10">

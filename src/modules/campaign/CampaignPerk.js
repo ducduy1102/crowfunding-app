@@ -1,6 +1,6 @@
 import { defaultImage } from "constants/global";
 import React from "react";
-import CampTitle from "./CampTitle";
+import CampTitle from "./parts/CampTitle";
 import { Button } from "components/button";
 import PropTypes from "prop-types";
 
