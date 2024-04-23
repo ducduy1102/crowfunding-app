@@ -48,3 +48,8 @@ input:focus + .error-input {
     ),
     url("https://images.unsplash.com/photo-1659948782675-9d4fadea983b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
 }
+
+.shadow-1 {
+  box-shadow: -4px 4px 8px rgba(226, 226, 226, 0.2),
+    4px 4px 8px rgba(226, 226, 226, 0.2);
+}
