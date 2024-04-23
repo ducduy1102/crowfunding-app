@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
+import Modal from "react-modal";
 
 const SignUpPage = lazy(() => import("./pages/SignUpPage"));
 const SignInPage = lazy(() => import("./pages/SignInPage"));
@@ -8,6 +9,13 @@ const CampaignPage = lazy(() => import("./pages/CampaignPage"));
 const StartCampaignPage = lazy(() => import("./pages/StartCampaignPage"));
 const LayoutDashboard = lazy(() => import("layout/LayoutDashboard"));
 const CampaignView = lazy(() => import("modules/campaign/CampaignView"));
+
+const customStyles = {
+  content: {},
+};
+
+Modal.setAppElement("#root");
+Modal.defaultStyles = {};
 
 function App() {
   return (
