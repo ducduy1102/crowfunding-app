@@ -16,7 +16,7 @@ import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import { toast } from "react-toastify";
-import { apiURL } from "config/config";
+import { apiURL, imgbbAPI } from "config/config";
 import ImageUpload from "components/image/ImageUpload";
 Quill.register("modules/imageUploader", ImageUploader);
 
@@ -65,18 +65,19 @@ const CampaignAddNew = () => {
         ["link", "image"],
       ],
       imageUploader: {
+        // imgbbAPI
         upload: async (file) => {
-          // const bodyFormData = new FormData();
-          // bodyFormData.append("image", file);
-          // const response = await axios({
-          //   method: "post",
-          //   url: imgbbAPI,
-          //   data: bodyFormData,
-          //   headers: {
-          //     "Content-Type": "multipart/form-data",
-          //   },
-          // });
-          // return response.data.data.url;
+          const bodyFormData = new FormData();
+          bodyFormData.append("image", file);
+          const response = await axios({
+            method: "post",
+            url: imgbbAPI,
+            data: bodyFormData,
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          });
+          return response.data.data.url;
         },
       },
     }),

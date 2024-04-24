@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { imgbbAPI } from "config/config";
+import { toast } from "react-toastify";
 
 const ImageUpload = ({ onChange = () => {}, name = "" }) => {
   const handleUploadImage = async (e) => {
@@ -9,7 +10,7 @@ const ImageUpload = ({ onChange = () => {}, name = "" }) => {
     const file = e.target.files;
     if (!file) return;
 
-    bodyFormData.append("image", file);
+    bodyFormData.append("image", file[0]);
     const response = await axios({
       method: "post",
       url: `${imgbbAPI}`,
@@ -18,9 +19,18 @@ const ImageUpload = ({ onChange = () => {}, name = "" }) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log(response);
-    // onChange(name, "response.data.data.url");
-    // return response.data.data.url;
+    // console.log(response.data.data.url);
+    const imageData = response.data.data;
+    if (!imageData) {
+      toast.error("Can't upload image to imgbbAPI");
+      return;
+    }
+    const imageObj = {
+      medium: imageData.medium.url,
+      thumb: imageData.thumb.url,
+      url: imageData.url,
+    };
+    onChange(name, imageObj);
   };
   return (
     <label className="w-full rounded-xl border border-dashed border-gray-200 h-[200px] object-cover cursor-pointer flex items-center justify-center">
