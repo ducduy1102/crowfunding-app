@@ -12,15 +12,48 @@ import axios from "axios";
 import { IconBannerCampAddNew, IconMoneyBag } from "components/icons";
 import { Button } from "components/button";
 import useOnChange from "hooks/useOnChange";
-// import DatePicker from "react-date-picker";
+import DatePicker from "react-date-picker";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 import { toast } from "react-toastify";
+import { apiURL } from "config/config";
+import ImageUpload from "components/image/ImageUpload";
 Quill.register("modules/imageUploader", ImageUploader);
 
+const categoriesData = ["architecture", "education"];
+
 const CampaignAddNew = () => {
-  const { handleSubmit, control, setValue } = useForm({
+  const { handleSubmit, control, setValue, reset, watch } = useForm({
     mode: "onChange",
   });
+  const getDropdownLabel = (name, defaultValue = "") => {
+    const value = watch(name) || defaultValue;
+    return value;
+  };
   const [content, setContent] = useState("");
+
+  const resetValue = () => {
+    setStartDate("");
+    setEndDate("");
+    reset({});
+  };
+
+  const handleAddNewCampaign = async (values) => {
+    // console.log(values);
+    try {
+      await axios.post(`${apiURL}/campaigns`, {
+        ...values,
+        content,
+        startDate,
+        endDate,
+      });
+      toast.success("Create campaign successfully");
+      resetValue();
+    } catch (error) {
+      toast.error("Can't create new campaign");
+    }
+  };
+
   const modules = useMemo(
     () => ({
       toolbar: [
@@ -50,10 +83,6 @@ const CampaignAddNew = () => {
     []
   );
 
-  const handleAddNewCampaign = (values) => {
-    console.log(values);
-  };
-
   const handleSelectDropdownOption = (name, value) => {
     setValue(name, value);
   };
@@ -77,7 +106,8 @@ const CampaignAddNew = () => {
     fetchCountries();
   }, [filterCountry]);
 
-  // const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   return (
     <div className="rounded-xl bg-white py-10 px-[66px]">
@@ -98,15 +128,23 @@ const CampaignAddNew = () => {
             <FormGroup>
               <Label>Select a category *</Label>
               <Dropdown>
-                <Dropdown.Select placeholder="Select a category"></Dropdown.Select>
+                <Dropdown.Select
+                  placeholder={getDropdownLabel(
+                    "category",
+                    "Select a category"
+                  )}
+                ></Dropdown.Select>
                 <Dropdown.List>
-                  <Dropdown.Option
-                    onClick={() =>
-                      handleSelectDropdownOption("category", "architecture")
-                    }
-                  >
-                    Architecture
-                  </Dropdown.Option>
+                  {categoriesData.map((category) => (
+                    <Dropdown.Option
+                      key={category}
+                      onClick={() =>
+                        handleSelectDropdownOption("category", category)
+                      }
+                    >
+                      <span className="capitalize">{category}</span>
+                    </Dropdown.Option>
+                  ))}
                 </Dropdown.List>
               </Dropdown>
             </FormGroup>
@@ -129,7 +167,17 @@ const CampaignAddNew = () => {
               modules={modules}
             />
           </FormGroup>
-          <div className="relative my-10 banner">
+          <FormRow>
+            <FormGroup>
+              <Label>Featured Image</Label>
+              <ImageUpload
+                name="featured_image"
+                onChange={setValue}
+              ></ImageUpload>
+            </FormGroup>
+            <FormGroup></FormGroup>
+          </FormRow>
+          <div className="relative mb-10 banner">
             <div className="flex items-center w-full py-8 font-bold text-white rounded-lg banner bg-secondary px-11 bg-opacity-80 gap-x-3">
               <IconMoneyBag></IconMoneyBag>
               <p>You will get 90% of total raised</p>
@@ -191,12 +239,14 @@ const CampaignAddNew = () => {
             <FormGroup>
               <Label>Country</Label>
               <Dropdown>
-                <Dropdown.Select placeholder="Select country">
+                <Dropdown.Select
+                  placeholder={getDropdownLabel("country", "Select country")}
+                >
                   Country
                 </Dropdown.Select>
                 <Dropdown.List>
                   <Dropdown.Search
-                    placeholder="Search country"
+                    placeholder="Search country..."
                     onChange={setFilterCountry}
                   ></Dropdown.Search>
                   {countries.length > 0 &&
@@ -220,22 +270,19 @@ const CampaignAddNew = () => {
           <FormRow>
             <FormGroup>
               <Label>Start Date</Label>
-              <Input
-                type="date"
-                control={control}
-                name="start-date"
-                placeholder="Start Date"
-              ></Input>
-              {/* <DatePicker onChange={setStartDate} value={startDate}></DatePicker> */}
+              <DatePicker
+                onChange={setStartDate}
+                value={startDate}
+                format="dd-MM-yyyy"
+              ></DatePicker>
             </FormGroup>
             <FormGroup>
               <Label>End Date</Label>
-              <Input
-                type="date"
-                control={control}
-                name="end-date"
-                placeholder="End Date"
-              ></Input>
+              <DatePicker
+                onChange={setEndDate}
+                value={endDate}
+                format="dd-MM-yyyy"
+              ></DatePicker>
             </FormGroup>
           </FormRow>
           <div className="mt-10 text-center">
