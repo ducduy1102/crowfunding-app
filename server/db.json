@@ -1,5 +1,20 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "Evil",
+      "password": "$2b$10$ZSWSc2eQv0ky6JtUWLIim.9PCdmiTWJAipJLeG5XIllVB.WHHxe.i",
+      "email": "evilshadow@gmail.com",
+      "refreshToken": null
+    },
+    {
+      "id": 2,
+      "name": "Evil Shadow 2",
+      "password": "$2b$10$SwLledSyrzqtQCLbsYe1su4ecLGOesCLyCMP0j/uhLvA/atkzVqnK",
+      "email": "evilshadow2@gmail.com",
+      "refreshToken": null
+    }
+  ],
   "categories": [],
   "campaigns": [
     {

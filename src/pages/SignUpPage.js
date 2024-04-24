@@ -11,6 +11,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import IconEyeToggle from "../components/icons/IconEyeToggle";
 import useToggleValue from "../hooks/useToggleValue";
+import { useDispatch } from "react-redux";
+import { authRegister } from "store/auth/auth-slice";
 
 const schema = yup.object({
   name: yup.string().required("This field is required."),
@@ -28,14 +30,21 @@ const SignUpPage = () => {
   const {
     handleSubmit,
     control,
+    reset,
     formState: { isValid, isSubmitting, errors },
   } = useForm({
     mode: "onSubmit",
     resolver: yupResolver(schema),
   });
   // console.log(errors);
-  const handleSignUp = (values) => {
+  const dispatch = useDispatch();
+
+  const handleSignUp = async (values) => {
     // console.log(values);
+    try {
+      dispatch(authRegister(values));
+      reset({});
+    } catch (error) {}
   };
   const { value: acceptTerm, handleToggeValue: handleToggeTerm } =
     useToggleValue();
