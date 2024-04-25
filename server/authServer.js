@@ -53,6 +53,8 @@ app.post("/auth/login", (req, res) => {
   });
   if (!user) return res.sendStatus(401);
   const dbPassword = user.password;
+  console.log(dbPassword);
+  console.log(req.body.password);
   bcrypt.compare(req.body.password, dbPassword, (err, hash) => {
     if (err || !hash) {
       res.status(403).json({

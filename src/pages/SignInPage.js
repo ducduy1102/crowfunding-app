@@ -10,6 +10,8 @@ import useToggleValue from "hooks/useToggleValue";
 import { IconEyeToggle } from "components/icons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch } from "react-redux";
+import { authLogin } from "store/auth/auth-slice";
 
 const schema = yup.object({
   email: yup.string().email("").required("This field is required."),
@@ -30,8 +32,10 @@ const SignInPage = () => {
   });
   const { value: showPassword, handleToggeValue: handleTogglePassword } =
     useToggleValue();
+  const dispatch = useDispatch();
   const handleSignIn = (values) => {
     // console.log(values);
+    dispatch(authLogin(values));
   };
   return (
     <LayoutAuthentication heading="Welcome Back!">

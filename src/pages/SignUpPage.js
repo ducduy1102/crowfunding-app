@@ -57,7 +57,7 @@ const SignUpPage = () => {
         Already have an account?
         <Link to={"/login"} className="font-medium underline text-primary">
           {" "}
-          Sign in
+          Login
         </Link>
       </p>
       <ButtonGoogle text="Sign up with Google"></ButtonGoogle>
