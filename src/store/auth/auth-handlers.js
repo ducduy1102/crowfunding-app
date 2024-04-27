@@ -1,7 +1,12 @@
-import { call } from "redux-saga/effects";
-import { requestAuthLogin, requestAuthRegister } from "./auth-requests";
+import { call, put } from "redux-saga/effects";
+import {
+  requestAuthFetchMe,
+  requestAuthLogin,
+  requestAuthRegister,
+} from "./auth-requests";
 import { toast } from "react-toastify";
 import { saveToken } from "utils/auth";
+import { authUpdateUser } from "./auth-slice";
 
 export default function* handleAuthRegister(action) {
   // console.log(action);
@@ -15,18 +20,35 @@ export default function* handleAuthRegister(action) {
   } catch (error) {}
 }
 
-function* handleAuthLogin(action) {
-  console.log(action);
-  const { payload } = action;
+function* handleAuthLogin({ payload }) {
   try {
     const response = yield call(requestAuthLogin, payload);
-    console.log(response);
-    // accessToken, refreshToken
     if (response.data.accessToken && response.data.refreshToken) {
       saveToken(response.data.accessToken, response.data.refreshToken);
+      yield call(handleAuthFetchMe, { payload: response.data.accessToken });
     }
-    yield 1;
+  } catch (error) {
+    const response = error.response.data;
+    if (response.statusCode === 403) {
+      toast.error(response.error.message);
+      return;
+    }
+  }
+}
+
+function* handleAuthFetchMe({ payload }) {
+  try {
+    const response = yield call(requestAuthFetchMe, payload);
+    // console.log(response);
+    if (response.status === 200) {
+      yield put(
+        authUpdateUser({
+          user: response.data,
+          accessToken: payload,
+        })
+      );
+    }
   } catch (error) {}
 }
 
-export { handleAuthLogin };
+export { handleAuthLogin, handleAuthFetchMe };
