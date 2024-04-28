@@ -43,6 +43,7 @@ const SignInPage = () => {
     if (user && user.id) {
       navigate("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   return (
     <LayoutAuthentication heading="Welcome Back!">

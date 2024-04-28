@@ -7,9 +7,9 @@ const StartCampaignPage = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   useEffect(() => {
-    // if (!user || !user.email) {
-    //   navigate("/login");
-    // }
+    if (!user || !user.email) {
+      navigate("/login");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   console.log(user);
