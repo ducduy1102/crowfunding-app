@@ -2,9 +2,9 @@
   "users": [
     {
       "id": 1,
-      "name": "Evil",
-      "password": "$2b$10$mqEb6bZwH16I1v/0mrmwdeNaNpwe5bF0sMmjV6Yx1G7uFT92hzV5G",
-      "email": "evil@gmail.com",
+      "name": "Shadow",
+      "password": "$2b$10$Go1mhOmaKR0t8X/Poh8DBePM5dCw4t7eiG1wi7sreTRkgm9mWy9iq",
+      "email": "ducduy1110u@gmail.com",
       "refreshToken": null
     }
   ],
