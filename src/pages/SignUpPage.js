@@ -42,7 +42,7 @@ const SignUpPage = () => {
   const handleSignUp = async (values) => {
     // console.log(values);
     try {
-      dispatch(authRegister(values));
+      dispatch(authRegister({ ...values, permissions: [] }));
       reset({});
     } catch (error) {}
   };
