@@ -1,6 +1,6 @@
 import axios from "api/axios";
 import { authUpdateUser } from "store/auth/auth-slice";
-import { getToken } from "utils/auth";
+import { getToken, saveToken } from "utils/auth";
 
 export default function useRefreshToken() {
   async function refresh() {
@@ -10,10 +10,11 @@ export default function useRefreshToken() {
       "Content-Type": "application/json",
       refreshToken: refresh_token,
     });
-
+    saveToken(response.data.accessToken, response.data.refreshToken);
+    if (!response.data) return null;
     authUpdateUser((prev) => ({
       ...prev,
-      accessToken: response?.data?.accessToken,
+      accessToken: response.data.accessToken,
     }));
 
     return response?.data?.accessToken || "";

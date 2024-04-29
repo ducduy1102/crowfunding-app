@@ -1,1 +1,47 @@
-{"users":[{"id":1,"name":"Evil","password":"$2b$10$D5/qfLVnIP67BG9t1H4a3.hfEcGSVm4/M9NzHzYcoqm0Ollhn9hFS","email":"evilshadow2@gmail.com","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkV2aWwiLCJpYXQiOjE3MTQzMDY3ODEsImV4cCI6MTcxNDQ3OTU4MX0.vrpS6ptsGFRjDR6hveYEC_Xzndb5h3PyFNe1dtqwwR8"}],"categories":[],"campaigns":[{"title":"Powered Kits Learning Boxes","short-desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.","goal":"100","amount":"200","prefilled":"10.20","video":"https://www.youtube.com/watch?v=Vz8ttUSKpYo","category":"architecture","country":"Vietnam","content":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.</p>","startDate":"2024-04-24T17:00:00.000Z","endDate":"2024-04-29T17:00:00.000Z","id":1},{"title":"Powered Kits Learning Boxes","short-desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.","goal":"100","amount":"200","prefilled":"10.20","video":"https://www.youtube.com/watch?v=Vz8ttUSKpYo","category":"education","featured_image":{"medium":"https://i.ibb.co/qnDQ9J3/view.jpg","thumb":"https://i.ibb.co/0XnbZsR/view.jpg","url":"https://i.ibb.co/Sx6C0f4/view.jpg"},"country":"South Korea","content":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.</p>","startDate":"2024-04-24T17:00:00.000Z","endDate":"2024-04-29T17:00:00.000Z","id":2}]}
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Evil",
+      "password": "$2b$10$D5/qfLVnIP67BG9t1H4a3.hfEcGSVm4/M9NzHzYcoqm0Ollhn9hFS",
+      "email": "evilshadow2@gmail.com",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkV2aWwiLCJpYXQiOjE3MTQzODExOTIsImV4cCI6MTcxNDU1Mzk5Mn0.O7CVJi5tENkDYnHQxIiw6O1yB1Vz5OkCKgbHUZ70zTY"
+    }
+  ],
+  "categories": [],
+  "campaigns": [
+    {
+      "title": "Powered Kits Learning Boxes",
+      "short-desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.",
+      "goal": "100",
+      "amount": "200",
+      "prefilled": "10.20",
+      "video": "https://www.youtube.com/watch?v=Vz8ttUSKpYo",
+      "category": "architecture",
+      "country": "Vietnam",
+      "content": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.</p>",
+      "startDate": "2024-04-24T17:00:00.000Z",
+      "endDate": "2024-04-29T17:00:00.000Z",
+      "id": 1
+    },
+    {
+      "title": "Powered Kits Learning Boxes",
+      "short-desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.",
+      "goal": "100",
+      "amount": "200",
+      "prefilled": "10.20",
+      "video": "https://www.youtube.com/watch?v=Vz8ttUSKpYo",
+      "category": "education",
+      "featured_image": {
+        "medium": "https://i.ibb.co/qnDQ9J3/view.jpg",
+        "thumb": "https://i.ibb.co/0XnbZsR/view.jpg",
+        "url": "https://i.ibb.co/Sx6C0f4/view.jpg"
+      },
+      "country": "South Korea",
+      "content": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit qui soluta, tenetur voluptates, distinctio illo animi nobis voluptatum, incidunt ab. Neque mollitia iste illum impedit labore dignissimos. Ipsum, laboriosam.</p>",
+      "startDate": "2024-04-24T17:00:00.000Z",
+      "endDate": "2024-04-29T17:00:00.000Z",
+      "id": 2
+    }
+  ]
+}

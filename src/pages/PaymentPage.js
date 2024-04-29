@@ -18,7 +18,11 @@ const PaymentPage = () => {
             <p className="mb-6 text-sm text-text3">
               Get paid directly via Paypal.
             </p>
-            <Button className="w-full bg-secondary bg-opacity-20 text-secondary">
+            <Button
+              type="button"
+              className="w-full bg-opacity-20 "
+              kind="ghost"
+            >
               Connect
             </Button>
           </div>
@@ -27,7 +31,9 @@ const PaymentPage = () => {
             <p className="mb-6 text-sm text-text3">
               Get paid worldwide your Work.
             </p>
-            <Button className="w-full text-white bg-secondary">Connect</Button>
+            <Button type="button" className="w-full" kind="secondary">
+              Connect
+            </Button>
           </div>
         </div>
       </div>
